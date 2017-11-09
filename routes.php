@@ -6,6 +6,7 @@ return [
         '/clear'         => ['controller' => 'PagesController', 'action' => 'clear'],
         '/login'         => ['controller' => 'OauthController', 'action' => 'login'],
         '/logout'        => ['controller' => 'OauthController', 'action' => 'logout'],
+        '/destroy'        => ['controller' => 'OauthController', 'action' => 'destroy'],
         '/callback'      => ['controller' => 'OauthController', 'action' => 'callback'],
         '/user'          => ['controller' => 'UsersController', 'action' => 'show'],
         '/user/clear'    => ['controller' => 'UsersController', 'action' => 'clear'],

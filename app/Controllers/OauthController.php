@@ -76,6 +76,17 @@ class OauthController extends Controller
         view('welcome.php');
     }
 
+    public function destroy()
+    {
+        if (file_exists($this->filename)) {
+            unlink($this->filename);
+        }
+
+        unset($_SESSION['access_token']);
+        $_SESSION['status'] = 'Login token removed.';
+        return view('welcome.php');
+    }
+
     protected function setSessionData($token, $message = 'Authorized.')
     {
         $_SESSION['client_id'] = config('oauth.client_id');

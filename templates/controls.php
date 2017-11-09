@@ -2,6 +2,8 @@
 
 <a href="/login" class="btn btn-xs btn-primary">Login</a>
 
+<a href="/destroy" class="btn btn-xs btn-warning">Delete token</a>
+
 <?php if (isset($_SESSION['access_token'])) : ?>
     <a href="/logout" class="btn btn-xs btn-info">Logout</a>
 

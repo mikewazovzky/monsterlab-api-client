@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 class PostsController extends Controller
 {
@@ -45,19 +46,22 @@ class PostsController extends Controller
         $prefix = config('oauth.prefix');
         $accessToken = session('access_token');
 
-        $response = $http->request('POST', $host . $prefix . "/posts/{$id}/destroy", [
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $accessToken,
-            ],
-        ]);
+        try {
+            $response = $http->request('POST', $host . $prefix . "/posts/{$id}/destroy", [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Authorization' => 'Bearer ' . $accessToken,
+                ],
+            ]);
 
-        $result = json_decode((string) $response->getBody(), true);
+            $result = json_decode((string) $response->getBody(), true);
 
-        unset($_SESSION['posts']);
-        $_SESSION['status'] = $result['status'];
-
-        return $this->redirect('index');
+            unset($_SESSION['posts']);
+            $_SESSION['status'] = $result['status'];
+            return $this->redirect('index');
+        } catch (ClientException $e) {
+            echo $e->getResponse()->getBody();
+        }
     }
 
     /**
