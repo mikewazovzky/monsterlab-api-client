@@ -13,6 +13,8 @@ export default Vue.component('request-builder', {
                     <option v-for="item in types" :value="item.component" v-text="item.title"></option>
                 </select>
 
+                <span v-show="showId">ID</span>
+
                 <input v-show="showId" id="id" type="text" v-model="id"/>
 
                 <button class="btn btn-primary btn-xs pull-right" @click="execute">Excecute</button>
