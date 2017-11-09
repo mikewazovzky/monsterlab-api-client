@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>API Client</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
++   <link rel="icon" href="/public/images/favicon.ico" type="image/x-icon">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<!-- jQuery library -->
